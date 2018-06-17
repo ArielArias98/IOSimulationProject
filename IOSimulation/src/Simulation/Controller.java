@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Simulation;
 
 public class Controller {
@@ -99,6 +94,21 @@ public class Controller {
         this.timeOut = timeOut;
     }
     
+    public void startGUI(){
+        StartWindow startWindow = new StartWindow();
+        startWindow.setController(this);
+        startWindow.setVisible(true);
+    }
+    
+    public void startSimulation(){
+            /*ToDo Start the simulation thread*/
+            
+            //Start the GUI thread
+            SimulationWindow simulation = new SimulationWindow();
+            simulation.setController(this);
+            simulation.setVisible(true);
+            simulation.simulationThreadStart();
+    }
 }
 
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Simulation;
 
 import javax.swing.JOptionPane;
@@ -128,21 +123,16 @@ public class StartWindow extends javax.swing.JFrame {
     //Start simulation button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(simulationController.getConfigSet()) {
-            SimulationWindow simulation = new SimulationWindow();
-            simulation.setPreviousWindow(this);
-            simulation.setController(simulationController);
-            simulation.setVisible(true);
-            this.setVisible(false);
-            simulation.simulationStart();
+            this.simulationController.startSimulation();
+            this.dispose();
         }
         else{
             JOptionPane.showMessageDialog(null, "The parameters have not been set");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    //@param args the command line arguments     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
