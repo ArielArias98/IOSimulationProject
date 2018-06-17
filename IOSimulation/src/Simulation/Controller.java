@@ -1,7 +1,7 @@
 package Simulation;
 
 public class Controller {
-    
+
     /*SIMULATION PARAMETERS*/
     //True if the simulation initial configuration was established
     private boolean configSet = false;
@@ -93,22 +93,20 @@ public class Controller {
     public void setTimeOut(double timeOut) {
         this.timeOut = timeOut;
     }
-    
-    public void startGUI(){
+
+    public void startGUI() {
         StartWindow startWindow = new StartWindow();
         startWindow.setController(this);
         startWindow.setVisible(true);
     }
-    
-    public void startSimulation(){
-            /*ToDo Start the simulation thread*/
-            
-            //Start the GUI thread
-            SimulationWindow simulation = new SimulationWindow();
-            simulation.setController(this);
-            simulation.setVisible(true);
-            simulation.simulationThreadStart();
+
+    public void startSimulation() {
+        /*ToDo Start the simulation thread*/
+
+        //Start the GUI thread
+        SimulationWindow simulation = new SimulationWindow();
+        simulation.setController(this);
+        simulation.setVisible(true);
+        simulation.simulationThreadStart();
     }
 }
-
-

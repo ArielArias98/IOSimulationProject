@@ -2,27 +2,25 @@ package Simulation;
 
 public class DisplayConfigWindow extends javax.swing.JFrame {
 
-    
     //Creates new form displayConfigWindow
     public DisplayConfigWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     private StartWindow previousWindow;
 
-    public void setPreviousWindow(StartWindow previousWindow){
+    public void setPreviousWindow(StartWindow previousWindow) {
         this.previousWindow = previousWindow;
     }
-    
+
     private Controller simulationController;
-    
-    public void setController(Controller simulationController){
+
+    public void setController(Controller simulationController) {
         this.simulationController = simulationController;
     }
-    
-    public void setWindowText()
-    {
+
+    public void setWindowText() {
         jLabel10.setText(Integer.toString(simulationController.getRepetitions()));
         jLabel11.setText(Double.toString(simulationController.getSimulationTime()));
         jLabel12.setText(Integer.toString(simulationController.getConcurrentConnections()));
@@ -30,10 +28,9 @@ public class DisplayConfigWindow extends javax.swing.JFrame {
         jLabel14.setText(Integer.toString(simulationController.getTransactionsAvailableProcesses()));
         jLabel15.setText(Integer.toString(simulationController.getExecutionAvailableProcesses()));
         jLabel16.setText(Double.toString(simulationController.getTimeOut()));
-        if(simulationController.getSlowMode()){
+        if (simulationController.getSlowMode()) {
             jLabel17.setText("Yes");
-        }
-        else{
+        } else {
             jLabel17.setText("No");
         }
     }

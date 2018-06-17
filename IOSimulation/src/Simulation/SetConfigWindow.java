@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 public class SetConfigWindow extends javax.swing.JFrame {
 
-    
     //Creates new form SetConfigWindow 
     public SetConfigWindow() {
         initComponents();
@@ -13,16 +12,16 @@ public class SetConfigWindow extends javax.swing.JFrame {
 
     private StartWindow previousWindow;
 
-    public void setPreviousWindow(StartWindow previousWindow){
+    public void setPreviousWindow(StartWindow previousWindow) {
         this.previousWindow = previousWindow;
     }
-    
+
     private Controller simulationController;
-    
-    public void setController(Controller simulationController){
+
+    public void setController(Controller simulationController) {
         this.simulationController = simulationController;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,64 +180,53 @@ public class SetConfigWindow extends javax.swing.JFrame {
         boolean validSave = true;
         try {
             Integer.parseInt(jTextField1.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on number of times the simulation will be run");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on number of times the simulation will be run");
             validSave = false;
         }
         try {
             Double.parseDouble(jTextField2.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on total time in seconds to run each simulation");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on total time in seconds to run each simulation");
             validSave = false;
         }
         try {
             Integer.parseInt(jTextField3.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on the number of concurrent connections that the system can handle (k)");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on the number of concurrent connections that the system can handle (k)");
             validSave = false;
         }
         try {
             Integer.parseInt(jTextField4.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on the number of concurrent queries processing that the system can handle (n)");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on the number of concurrent queries processing that the system can handle (n)");
             validSave = false;
         }
         try {
             Integer.parseInt(jTextField5.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on the number of processes available for the execution of transactions (p)");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on the number of processes available for the execution of transactions (p)");
             validSave = false;
         }
         try {
             Integer.parseInt(jTextField6.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on the number of processes available to execute queries (m)");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on the number of processes available to execute queries (m)");
             validSave = false;
         }
         try {
             Double.parseDouble(jTextField7.getText());
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Invalid input on the timeout in seconds of the connections (t)");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input on the timeout in seconds of the connections (t)");
             validSave = false;
         }
-        if(validSave)
-        {
+        if (validSave) {
             simulationController.setConfigSet();
             simulationController.setRepetitions(Integer.parseInt(jTextField1.getText()));
             simulationController.setSimulationTime(Double.parseDouble(jTextField2.getText()));
-            if(jComboBox2.getSelectedItem().equals("Yes"))
-            {
+            if (jComboBox2.getSelectedItem().equals("Yes")) {
                 simulationController.setSlowMode(true);
-            }
-            else
-            {
+            } else {
                 simulationController.setSlowMode(false);
             }
             simulationController.setConcurrentConnections(Integer.parseInt(jTextField3.getText()));
@@ -249,8 +237,8 @@ public class SetConfigWindow extends javax.swing.JFrame {
             previousWindow.setVisible(true);
             this.dispose();
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //@param args the command line arguments  
@@ -265,28 +253,24 @@ public class SetConfigWindow extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(SetConfigWindow.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(SetConfigWindow.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(SetConfigWindow.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SetConfigWindow.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

@@ -3,27 +3,27 @@ package Simulation;
 import java.util.*;
 
 public class SimulationWindow extends javax.swing.JFrame implements Runnable {
-    String hour,minute,second,ampm;
+
+    String hour, minute, second, ampm;
     Calendar time;
     Thread thread;
     boolean slowMode = false;
     double startTime;
     boolean running = false;
-    
-    
+
     //Creates new form SimulationWindow
     public SimulationWindow() {
         initComponents();
         thread = new Thread(this);
         this.setLocationRelativeTo(null);
     }
-    
+
     private Controller simulationController;
-    
-    public void setController(Controller simulationController){
+
+    public void setController(Controller simulationController) {
         this.simulationController = simulationController;
     }
-    
+
     public void simulationThreadStart() {
         if (this.simulationController.getSlowMode()) {
             this.slowMode = true;
@@ -191,14 +191,11 @@ public class SimulationWindow extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(this.slowMode)
-        {
+        if (this.slowMode) {
             slowMode = false;
             jButton1.setText("Slow Mode");
             jLabel15.setText("No");
-        }
-        else
-        {
+        } else {
             slowMode = true;
             jButton1.setText("Normal Mode");
             jLabel15.setText("Yes");
@@ -228,7 +225,7 @@ public class SimulationWindow extends javax.swing.JFrame implements Runnable {
 
     @Override
     public void run() {
-        int test =0;
+        int test = 0;
         while (running) {
             updateSystem();
             jLabel3.setText(hour + ":" + minute + ":" + second + " " + ampm);
@@ -237,7 +234,8 @@ public class SimulationWindow extends javax.swing.JFrame implements Runnable {
             if (this.slowMode) {
                 try {
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {}
+                } catch (InterruptedException e) {
+                }
             }
         }
     }
@@ -255,10 +253,9 @@ public class SimulationWindow extends javax.swing.JFrame implements Runnable {
         } else {
             hour = calendar.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendar.get(Calendar.HOUR_OF_DAY) : "0" + calendar.get(Calendar.HOUR_OF_DAY);
         }
-        minute = calendar.get(Calendar.MINUTE)>9?""+calendar.get(Calendar.MINUTE):"0"+calendar.get(Calendar.MINUTE);
-        second = calendar.get(Calendar.SECOND)>9?""+calendar.get(Calendar.SECOND):"0"+calendar.get(Calendar.SECOND);
+        minute = calendar.get(Calendar.MINUTE) > 9 ? "" + calendar.get(Calendar.MINUTE) : "0" + calendar.get(Calendar.MINUTE);
+        second = calendar.get(Calendar.SECOND) > 9 ? "" + calendar.get(Calendar.SECOND) : "0" + calendar.get(Calendar.SECOND);
         //ToDo update simulation info from the simulation thread
-    
-    
+
     }
 }
