@@ -21,6 +21,10 @@ public class Controller {
     private int executionAvailableProcesses = 0;
     //The timeout in seconds of the connections (t)
     private double timeOut = 0;
+    //Simulation window
+    private SimulationWindow simulationWindow;
+    
+    /*ToDo puntero a la simulación*/ 
 
     public boolean getConfigSet() {
         return configSet;
@@ -104,9 +108,26 @@ public class Controller {
         /*ToDo Start the simulation thread*/
 
         //Start the GUI thread
-        SimulationWindow simulation = new SimulationWindow();
-        simulation.setController(this);
-        simulation.setVisible(true);
-        simulation.simulationThreadStart();
+        this.simulationWindow = new SimulationWindow();
+        simulationWindow.setController(this);
+        simulationWindow.setVisible(true);
+        simulationWindow.simulationThreadStart();
+    }
+    
+    /*Metodo a llamar cada vez que se termine una corrida de la simulación*/
+    public void showRunStatsWindow()
+    {
+        /*ToDo conectar con simulación para obtener parametros con metodos que me den los stast de la corrida o mandarlo por string*/
+        RunStatsWindow runStatistics = new RunStatsWindow();
+        runStatistics.setVisible(true);
+    }
+    
+    /*Metodo a llamar cuando la simulación terminó todas sus corridas*/
+    public void showFinalStatsWindow()
+    {
+        this.simulationWindow.dispose();
+        /*ToDo metodo para establecer los valores que le manda la simulación*/
+        FinalStatsWindow finalStatistics = new FinalStatsWindow();
+        finalStatistics.setVisible(true);
     }
 }
