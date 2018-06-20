@@ -12,9 +12,9 @@ public class StartWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    private Controller simulationController;
+    private UIController simulationController;
 
-    public void setController(Controller simulationController) {
+    public void setController(UIController simulationController) {
         this.simulationController = simulationController;
     }
 

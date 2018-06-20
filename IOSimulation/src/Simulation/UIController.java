@@ -1,6 +1,6 @@
 package Simulation;
 
-public class Controller {
+public class UIController {
 
     /*SIMULATION PARAMETERS*/
     //True if the simulation initial configuration was established
@@ -21,8 +21,10 @@ public class Controller {
     private int executionAvailableProcesses = 0;
     //The timeout in seconds of the connections (t)
     private double timeOut = 0;
+    /*private Controller controller;*/ /*ToDo*/
     //Simulation window
     private SimulationWindow simulationWindow;
+    
     
     /*ToDo puntero a la simulación*/ 
 
@@ -115,7 +117,7 @@ public class Controller {
     }
     
     /*Metodo a llamar cada vez que se termine una corrida de la simulación*/
-    public void showRunStatsWindow()
+    public void displayRunStatsWindow()
     {
         /*ToDo conectar con simulación para obtener parametros con metodos que me den los stast de la corrida o mandarlo por string*/
         RunStatsWindow runStatistics = new RunStatsWindow();
@@ -123,7 +125,7 @@ public class Controller {
     }
     
     /*Metodo a llamar cuando la simulación terminó todas sus corridas*/
-    public void showFinalStatsWindow()
+    public void displayFinalStatsWindow()
     {
         this.simulationWindow.dispose();
         /*ToDo metodo para establecer los valores que le manda la simulación*/

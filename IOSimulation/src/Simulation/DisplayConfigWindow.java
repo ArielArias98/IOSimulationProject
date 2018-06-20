@@ -14,9 +14,9 @@ public class DisplayConfigWindow extends javax.swing.JFrame {
         this.previousWindow = previousWindow;
     }
 
-    private Controller simulationController;
+    private UIController simulationController;
 
-    public void setController(Controller simulationController) {
+    public void setController(UIController simulationController) {
         this.simulationController = simulationController;
     }
 

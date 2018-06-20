@@ -18,9 +18,9 @@ public class SimulationWindow extends javax.swing.JFrame implements Runnable {
         this.setLocationRelativeTo(null);
     }
 
-    private Controller simulationController;
+    private UIController simulationController;
 
-    public void setController(Controller simulationController) {
+    public void setController(UIController simulationController) {
         this.simulationController = simulationController;
     }
 
